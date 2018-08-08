@@ -53,6 +53,36 @@ class AppServiceProvider extends ServiceProvider
 		 view()->share('unseenOrders', $result);
 		 view()->share('newCustomers', $newCustomers);
 		 view()->share('lowInQunatity', $lowInQunatity);
+
+        //view all products
+        \view()->composer('frontend.home', function ($view) {
+            $view->with('products', DB::table('products_description')
+                ->join('products', 'products.products_id', '=', 'products_description.products_id')
+                ->join('products_attributes', 'products_attributes.products_attributes_id', '=', 'products_description.products_id')
+                ->select('products_description.*','products.*','products_attributes.*')
+                ->where('language_id', 1)
+                ->take(6)
+                ->get());
+        });
+        //view all products
+        \view()->composer('frontend.home', function ($view) {
+          $view->with('categories', DB::table('categories')
+                ->join('categories_description', 'categories_description.categories_description_id', '=', 'categories.categories_id')
+                ->select('categories.*','categories_description.*')
+                ->where('parent_id',0)
+                ->get());
+
+        });
+        //view all products
+        \view()->composer('frontend.home', function ($view) {
+          $view->with('manufacturers',  DB::table('manufacturers')
+              ->join('manufacturers_info', 'manufacturers_info.manufacturers_id', '=', 'manufacturers.manufacturers_id')
+              ->select('manufacturers.*','manufacturers_info.*')
+              ->get());
+
+
+        });
+
     }
 
     /**
