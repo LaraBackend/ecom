@@ -20,23 +20,21 @@
                             </div>
                         </div>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                            </div>
-                        </div>
+
                     </div><!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
+                        <?php $__currentLoopData = $manufacturers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $manufacturer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span></a></li>
+                                <li><a href="#"><?php echo e($manufacturer->manufacturers_name); ?> <span class="pull-right">(50)</span></a></li>
 
                             </ul>
                         </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div><!--/brands_products-->
-<?php dd($manufacturers)?>
+
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well text-center">

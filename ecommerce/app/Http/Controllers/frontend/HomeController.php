@@ -17,15 +17,5 @@ class HomeController extends Controller
 
 
 
-    public function allBrands()
-    {
 
-        $categories = DB::table('manufacturers')
-            ->join('manufacturers_info', 'manufacturers_info.manufacturers_id', '=', 'manufacturers.manufacturers_id')
-            ->select('manufacturers.*','manufacturers_info.*')
-            ->get();
-
-        // dd($categories);
-        return view('frontend.home',compact('categories'));
-    }
 }

@@ -19,23 +19,21 @@
                             </div>
                         </div>
                       @endforeach
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href="#">Shoes</a></h4>
-                            </div>
-                        </div>
+
                     </div><!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->
                         <h2>Brands</h2>
+                        @foreach($manufacturers as $manufacturer)
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span></a></li>
+                                <li><a href="#">{{$manufacturer->manufacturers_name}} <span class="pull-right">(50)</span></a></li>
 
                             </ul>
                         </div>
+                        @endforeach
                     </div><!--/brands_products-->
-<?php dd($manufacturers)?>
+
                     <div class="price-range"><!--price-range-->
                         <h2>Price Range</h2>
                         <div class="well text-center">
