@@ -7,8 +7,8 @@ use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
-    public function show(){
-echo 'no';
+    public function show()
+    {
         return view('frontend.category.categories');
-}
+    }
 }

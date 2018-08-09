@@ -65,7 +65,7 @@ class AppServiceProvider extends ServiceProvider
                 ->get());
         });
         //view all products
-        \view()->composer('frontend.home', function ($view) {
+        \view()->composer('*', function ($view) {
           $view->with('categories', DB::table('categories')
                 ->join('categories_description', 'categories_description.categories_description_id', '=', 'categories.categories_id')
                 ->select('categories.*','categories_description.*')

@@ -1,5 +1,4 @@
 @include('frontend.layouts.header')
-@include('frontend.layouts.menu')
-
+<?php dd($categories);?>
 
 @include('frontend.layouts.footer')
