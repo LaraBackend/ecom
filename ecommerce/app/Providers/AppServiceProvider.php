@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
 		 view()->share('lowInQunatity', $lowInQunatity);
 
         //view all products
-        \view()->composer('frontend.home', function ($view) {
+        \view()->composer('*', function ($view) {
             $view->with('products', DB::table('products_description')
                 ->join('products', 'products.products_id', '=', 'products_description.products_id')
                 ->join('products_attributes', 'products_attributes.products_attributes_id', '=', 'products_description.products_id')

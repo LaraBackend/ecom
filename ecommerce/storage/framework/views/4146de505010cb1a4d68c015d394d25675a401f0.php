@@ -54,14 +54,14 @@
     </div>
     <div class="tab-content">
         <div class="tab-pane fade active in" id="tshirt" >
-            <?php $__currentLoopData = $category_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = $product_category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-sm-3">
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="<?php echo e(asset('').$cat->categories_image); ?>" alt="" />
-                            <h2><?php echo e($cat->categories_name); ?></h2>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-th-large"></i>View</a>
+                            <img src="<?php echo e(asset('').$item->products_image); ?>" alt="" />
+                            <h2><?php echo e($item->products_name); ?></h2>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
                         </div>
 
                     </div>

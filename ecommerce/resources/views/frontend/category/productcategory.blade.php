@@ -1,23 +1,22 @@
-<?php echo $__env->make('frontend.layouts.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@include('frontend.layouts.header')
 <div class="container">
     <div class="row">
         <div class="col-sm-3">
             <div class="left-sidebar">
                 <h2>Category</h2>
                 <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    @foreach($categories as $categories)
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        <?php echo e($categories->categories_name); ?>
-
+                                        {{$categories->categories_name}}
                                     </a>
                                 </h4>
                             </div>
                         </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    @endforeach
 
                 </div><!--/category-products-->
 
@@ -40,7 +39,7 @@
                 </div><!--/price-range-->
 
                 <div class="shipping text-center"><!--shipping-->
-                    <img src="<?php echo e(asset('').'/public/frontend/images/home/shipping.jpg'); ?>" alt="" />
+                    <img src="{{asset('').'/public/frontend/images/home/shipping.jpg' }}" alt="" />
                 </div><!--/shipping-->
 
             </div>
@@ -54,20 +53,20 @@
     </div>
     <div class="tab-content">
         <div class="tab-pane fade active in" id="tshirt" >
-            <?php $__currentLoopData = $category_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            @foreach($product_category as $item)
             <div class="col-sm-3">
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="<?php echo e(asset('').$cat->categories_image); ?>" alt="" />
-                            <h2><?php echo e($cat->categories_name); ?></h2>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-th-large"></i>View</a>
+                            <img src="{{asset('').$item->products_image }}" alt="" />
+                            <h2>{{$item->products_name}}</h2>
+                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add To Cart</a>
                         </div>
 
                     </div>
                 </div>
             </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+@endforeach
 
         </div>
 
@@ -76,4 +75,4 @@
 </div><!--/category-tab-->
     </div>
 </div>
-<?php echo $__env->make('frontend.layouts.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@include('frontend.layouts.footer')
